@@ -199,7 +199,6 @@ export const experiences: Experience[] = [
     startDate: "2020-08",
     endDate: "2024-12",
     description: [
-      "GPA: 3.8/4.0",
       "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems",
       "Dean's List: Fall 2020, Spring 2021, Fall 2022, Spring 2023"
     ]
@@ -208,7 +207,7 @@ export const experiences: Experience[] = [
     id: "work-1",
     type: "work",
     title: "Software Engineering Intern",
-    organization: "Tech Company Inc.",
+    organization: "Bakkal Co.",
     location: "Remote",
     startDate: "2023-06",
     endDate: "2023-08",
