@@ -191,27 +191,16 @@ export const projects: Project[] = [
 
 export const experiences: Experience[] = [
   {
-    id: "edu-1",
-    type: "education",
-    title: "Bachelor of Science in Computer Engineering",
-    organization: "Pennsylvania State University",
-    location: "State College, PA",
-    startDate: "2020-08",
-    endDate: "2024-12",
-    description: [
-      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems",
-      "Dean's List: Fall 2020, Spring 2021, Fall 2022, Spring 2023"
-    ]
-  },
-  {
     id: "work-1",
     type: "work",
-    title: "Software Engineering Intern",
-    organization: "Bakkal Co.",
+    title: "Software Engineer",
+    organization: "DementiAnalytics",
     location: "Remote",
-    startDate: "2023-06",
-    endDate: "2023-08",
+    startDate: "2025-02",
+    endDate: "present",
+    current: true,
     description: [
+      "TODO: UPDATE PLACEHOLDER TEXT",
       "Developed microservices using Node.js and Docker, improving system modularity and deployment efficiency by 40%",
       "Implemented CI/CD pipelines with GitHub Actions, reducing deployment time from 2 hours to 15 minutes",
       "Collaborated with cross-functional teams to design and implement RESTful APIs serving 100k+ daily requests",
@@ -224,10 +213,11 @@ export const experiences: Experience[] = [
     title: "Founder & Developer",
     organization: "CydoniaTech",
     location: "State College, PA",
-    startDate: "2022-01",
+    startDate: "2025-01",
     endDate: "present",
     current: true,
     description: [
+      "TODO: UPDATE PLACEHOLDER TEXT",
       "Founded solo software consulting company delivering custom solutions for small businesses",
       "Architected and deployed 5+ full-stack applications with React, Node.js, and cloud infrastructure",
       "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
@@ -235,20 +225,48 @@ export const experiences: Experience[] = [
     ]
   },
   {
+    id: "edu-1",
+    type: "education",
+    title: "Bachelor of Science in Computer Engineering",
+    organization: "Pennsylvania State University",
+    location: "State College, PA",
+    startDate: "2020-08",
+    endDate: "2024-12",
+    description: [
+      "TODO: UPDATE PLACEHOLDER TEXT",
+      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems",
+      "Dean's List: Fall 2020, Spring 2021, Fall 2022, Spring 2023"
+    ]
+  },
+  {
     id: "work-3",
     type: "work",
-    title: "Research Assistant",
-    organization: "PSU Computer Science Department",
+    title: "Lead Learning Assistant Assistant",
+    organization: "PSU Computer Science & Engineering Department",
     location: "State College, PA",
-    startDate: "2022-09",
-    endDate: "2023-05",
+    startDate: "2022-01",
+    endDate: "2024-05",
     description: [
-      "Conducted research on machine learning applications in computer vision under Dr. Jane Smith",
-      "Implemented and optimized deep learning models using PyTorch, improving accuracy by 12%",
-      "Co-authored research paper on novel object detection techniques (pending publication)",
-      "Presented findings at university research symposium"
+      "TODO: UPDATE PLACEHOLDER TEXT",
+      "Lead learning and laboratorysessions for Computer Engineering 270: Digital Design"
     ]
-  }
+  },
+  {
+    id: "work-4",
+    type: "work",
+    title: "Software Engineering Intern & Co Op",
+    organization: "Bakkal",
+    location: "State College, PA",
+    startDate: "2023-06",
+    endDate: "2023-11",
+    description: [
+      "TODO: UPDATE PLACEHOLDER TEXT",
+      "Founded solo software consulting company delivering custom solutions for small businesses",
+      "Architected and deployed 5+ full-stack applications with React, Node.js, and cloud infrastructure",
+      "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
+      "Implemented DevOps best practices including containerization, CI/CD, and monitoring"
+    ]
+  },
 ];
 
 export const projectCategories = [
