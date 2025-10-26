@@ -9,7 +9,8 @@ import { experiences } from '@/lib/data';
 
 export const Experience = () => {
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    const [year, month] = dateString.split("-")
+    const date = new Date(parseInt(year), parseInt(month) - 1);
     return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
   };
 
