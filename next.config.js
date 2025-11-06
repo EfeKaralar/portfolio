@@ -40,12 +40,9 @@ const nextConfig = {
   // Compress output
   compress: true,
 
-  // Disable telemetry
-  telemetry: false,
 
   // Production optimizations
   reactStrictMode: true,
-  swcMinify: true,
 
   // Optional: Add redirects if needed
   async redirects() {
