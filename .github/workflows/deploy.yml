@@ -1,0 +1,117 @@
+name: Deploy Portfolio to VPS
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build application
+        run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+  deploy:
+    name: Deploy to VPS
+    needs: test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Add VPS to known hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Copy files to VPS
+        run: |
+          rsync -avz --delete \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            --exclude '.env.local' \
+            --exclude '.next' \
+            ./ ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:/home/deployer/portfolio/
+
+      - name: Deploy with Docker Compose
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
+            cd /home/deployer/portfolio
+            
+            # Pull latest changes
+            echo "Deploying new version..."
+            
+            # Build and start containers
+            docker-compose down
+            docker-compose build --no-cache
+            docker-compose up -d
+            
+            # Wait for health check
+            echo "Waiting for application to be healthy..."
+            sleep 10
+            
+            # Check if container is running
+            if docker ps | grep -q portfolio-app; then
+              echo "✅ Deployment successful!"
+              docker ps | grep portfolio-app
+            else
+              echo "❌ Deployment failed!"
+              docker logs portfolio-app
+              exit 1
+            fi
+            
+            # Cleanup old images
+            docker image prune -f
+          EOF
+
+      - name: Verify deployment
+        run: |
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
+            # Test health endpoint
+            response=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api/health)
+            if [ $response -eq 200 ]; then
+              echo "✅ Health check passed"
+            else
+              echo "❌ Health check failed with status: $response"
+              exit 1
+            fi
+          EOF
+
+      - name: Send deployment notification
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "🚀 Deployment completed successfully!"
+          else
+            echo "❌ Deployment failed!"
+          fi
