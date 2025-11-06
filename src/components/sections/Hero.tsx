@@ -100,7 +100,9 @@ export const Hero = () => {
             <Button
               variant="secondary"
               size="lg"
-              href="https://blog.alpkaralar.com"
+              href="https://medium.com/@karalar.alpefe"
+              // href="https://blog.alpkaralar.com"
+              // TODO: Update the URL when the blog is implemented
               className="flex items-center gap-2"
             >
               My Blog

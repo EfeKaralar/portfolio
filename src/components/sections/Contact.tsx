@@ -114,7 +114,7 @@ export const Contact = () => {
                 Message Sent!
               </h3>
               <p className="text-slate-600">
-                Thank you for reaching out. I'll get back to you soon!
+                Thank you for reaching out. I&apos;ll get back to you soon!
               </p>
             </motion.div>
           ) : (

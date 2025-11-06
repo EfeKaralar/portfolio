@@ -6,7 +6,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Project } from '@/types';
-import Image from 'next/image';
 
 interface ProjectCardProps {
   project: Project;

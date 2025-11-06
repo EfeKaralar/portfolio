@@ -16,6 +16,10 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
+// Create motion components OUTSIDE of the main component
+const MotionButton = motion.button;
+const MotionLink = motion.a;
+
 export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
@@ -42,17 +46,33 @@ export const Button: React.FC<ButtonProps> = ({
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
-  const MotionComponent = motion(href ? 'a' : 'button');
+  const motionProps = {
+    whileHover: { scale: 1.02 },
+    whileTap: { scale: 0.98 },
+    className: combinedClassName,
+  };
 
+  // If href is provided, use MotionLink (anchor tag)
+  if (href) {
+    return (
+      <MotionLink
+        {...motionProps}
+        href={href}
+        download={download}
+      >
+        {children}
+      </MotionLink>
+    );
+  }
+
+  // Otherwise, use MotionButton (button tag)
   return (
-    <MotionComponent
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={combinedClassName}
+    <MotionButton
+      {...motionProps}
       onClick={onClick}
-      {...(href ? { href, download } : { type })}
+      type={type}
     >
       {children}
-    </MotionComponent>
+    </MotionButton>
   );
 };
