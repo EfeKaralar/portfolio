@@ -57,16 +57,20 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   // DevOps Projects
+  // Add this to your projects array in src/lib/data.ts
+
+
   {
-    id: "project-1",
-    title: "Kubernetes Auto-Scaler",
-    shortDescription: "Intelligent auto-scaling system for K8s clusters based on custom metrics",
-    fullDescription: "Built a sophisticated auto-scaling solution that monitors custom application metrics and automatically scales Kubernetes deployments. Integrates with Prometheus for metrics collection and implements predictive scaling algorithms to handle traffic spikes proactively. Reduced infrastructure costs by 35% while maintaining 99.9% uptime.",
-    image: "/images/projects/k8s-scaler.jpg",
-    techStack: ["Kubernetes", "Go", "Prometheus", "Docker", "Helm"],
+    id: "project-cicd",
+    title: "Automated CI/CD Portfolio Deployment",
+    shortDescription: "Enterprise-grade DevOps pipeline with Docker, GitHub Actions, and zero-downtime deployments",
+    fullDescription: "Architected and implemented a complete DevOps solution for portfolio website deployment featuring containerized Next.js application with multi-stage Docker builds, automated CI/CD pipeline using GitHub Actions, Nginx reverse proxy with SSL/TLS termination, and comprehensive monitoring. The pipeline includes automated testing, building, and deployment with health checks ensuring zero-downtime updates. Security hardened with UFW firewall, Fail2Ban, and non-root container execution. Achieved 2-minute deployment cycles from code push to production with 99.9% uptime.",
+    image: "/images/projects/cicd-pipeline.jpg",
+    techStack: ["Docker", "GitHub Actions", "Nginx", "Let's Encrypt", "Ubuntu", "Bash", "YAML", "Next.js"],
     category: "devops",
-    timeline: "3 months",
-    githubUrl: "https://github.com/alpkaralar/k8s-autoscaler"
+    timeline: "1 week",
+    githubUrl: "https://github.com/efekaralar/portfolio",
+    demoUrl: "https://alpkaralar.com"
   },
   {
     id: "project-2",

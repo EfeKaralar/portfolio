@@ -61,12 +61,12 @@ jobs:
             --exclude '.git' \
             --exclude '.env.local' \
             --exclude '.next' \
-            ./ ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:/home/deployer/portfolio/
+            ./ ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }}:/home/deploy/portfolio/
 
       - name: Deploy with Docker Compose
         run: |
           ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
-            cd /home/deployer/portfolio
+            cd /home/deploy/portfolio
             
             # Pull latest changes
             echo "Deploying new version..."
