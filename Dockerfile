@@ -10,7 +10,7 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # Stage 2: Builder
 FROM node:20-alpine AS builder
@@ -27,7 +27,13 @@ ENV NODE_ENV production
 # Build the application
 RUN npm run build
 
-# Stage 3: Runner (Production)
+# Stage 3: Production deps only
+FROM node:20-alpine AS prod-deps
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm ci --only=production
+
+# Stage 4: Runner (Production)
 FROM node:20-alpine AS runner
 WORKDIR /app
 

@@ -70,6 +70,12 @@ jobs:
             
             # Pull latest changes
             echo "Deploying new version..."
+
+            # Restore env file if missing
+            if [ ! -f .env.production ]; then
+              echo "Restoring .env.production..."
+              cp /home/deploy/envs/portfolio.env .env.production
+            fi
             
             # Build and start containers
             docker-compose down
