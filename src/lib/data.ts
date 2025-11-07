@@ -5,7 +5,7 @@ import { SocialLink, Skill, Project, Experience } from '@/types';
 export const personalInfo = {
   name: "Alp Karalar",
   title: "Software Engineer",
-  objective: "Recent Computer Engineering graduate from Penn State University with a passion for building scalable systems and innovative solutions. Experienced in DevOps, Machine Learning, and Full-Stack Development, I thrive on solving complex technical challenges and delivering high-quality software.",
+  objective: "Recent Computer Engineering graduate from Penn State University with a passion for building scalable systems and innovative solutions. Experienced in DevOps, Machine Learning, and fullstack Development, I thrive on solving complex technical challenges and delivering high-quality software.",
   email: "karalar.alpefe@gmail.com",
   resumeUrl: "/resume.pdf", // Update this path when you add your resume
 };
@@ -71,15 +71,15 @@ export const projects: Project[] = [
   },
   {
     id: "project-rust-load-balancer",
-    title: "production-grade load balancer & reverse proxy",
-    shortDescription: "high-performance http load balancer built from scratch in rust with advanced traffic management and zero-downtime failover",
-    fullDescription: "architected and implemented a production-ready layer 7 load balancer and reverse proxy entirely in rust, leveraging tokio's async runtime for handling 10,000+ concurrent connections with minimal memory footprint (~20mb for 1000 connections vs 2gb for equivalent thread-based solution). the system features http/1.1 protocol parsing with keep-alive support, four load balancing algorithms (round-robin, least connections, weighted distribution, ip hash), and intelligent health checking with automatic backend failover. implemented tls/ssl termination using rustls for secure client connections, connection pooling to backend servers for 60% latency reduction, and comprehensive monitoring via tokio console and structured logging. achieved <5ms p99 latency under load testing (10,000 req/s) and demonstrated practical understanding of distributed systems concepts including service mesh patterns, graceful degradation, and backpressure handling. the project showcases expertise in systems programming, async i/o, network protocols, and building scalable infrastructure components from first principles.",
+    title: "Load Balancer & Reverse Proxy in Rust",
+    shortDescription: "High-performance http load balancer built from scratch in rust with advanced traffic management and zero-downtime failover",
+    fullDescription: "Architected and implemented a production-ready layer 7 load balancer and reverse proxy entirely in rust, leveraging tokio's async runtime for handling 10,000+ concurrent connections with minimal memory footprint (~20mb for 1000 connections vs 2gb for equivalent thread-based solution). the system features http/1.1 protocol parsing with keep-alive support, four load balancing algorithms (round-robin, least connections, weighted distribution, ip hash), and intelligent health checking with automatic backend failover. implemented tls/ssl termination using rustls for secure client connections, connection pooling to backend servers for 60% latency reduction, and comprehensive monitoring via tokio console and structured logging. achieved <5ms p99 latency under load testing (10,000 req/s) and demonstrated practical understanding of distributed systems concepts including service mesh patterns, graceful degradation, and backpressure handling. the project showcases expertise in systems programming, async i/o, network protocols, and building scalable infrastructure components from first principles.",
     image: "/images/projects/rust-load-balancer.jpg",
     techStack: ["rust", "tokio", "http/1.1", "tls/ssl", "rustls", "tcp/ip", "docker", "linux", "systems programming"],
     category: ["systems", "devops"],
     timeline: "3 weeks",
-    githubUrl: "https://github.com/yourusername/rust-load-balancer",
-    demoUrl: "https://github.com/yourusername/rust-load-balancer", // or your deployed demo if you have one
+    githubUrl: "https://github.com/EfeKaralar/rust-proxy",
+    demoUrl: "https://github.com/EfeKaralar/rust-proxy",
     // highlights: [
     //   "10,000+ concurrent connections with <20mb memory overhead",
     //   "4 load balancing algorithms with automatic failover",
@@ -89,16 +89,6 @@ export const projects: Project[] = [
     // ]
   },
   // DevOps Projects
-  {
-    id: "project-3",
-    title: "PLACEHOLDERnfrastructure as Code Framework",
-    shortDescription: "Reusable IaC modules for rapid cloud infrastructure deployment",
-    fullDescription: "Created a modular Infrastructure as Code framework that enables rapid deployment of production-ready cloud infrastructure. Includes reusable modules for networking, compute, databases, and monitoring. Deployed across 15+ projects with consistent security and compliance standards.",
-    image: "/images/projects/iac-framework.jpg",
-    techStack: ["Terraform", "AWS", "Ansible", "Python", "Bash"],
-    category: ["devops"],
-    timeline: "4 months"
-  },
 
   // Machine Learning Projects
   {
@@ -139,15 +129,15 @@ export const projects: Project[] = [
     demoUrl: "https://github.com/efekaralar/mdadm-linear-device#readme"
   },
 
-  // Full-Stack Projects
+  // fullstack Projects
   {
     id: "project-lkml-dashboard",
     title: "LKML Dashboard - AI-Powered Kernel Development Tool",
-    shortDescription: "Full-stack platform democratizing Linux kernel contribution through AI summarization of 600+ daily mailing list emails",
-    fullDescription: "Built a production-ready full-stack application that solves a critical barrier to Linux kernel contribution: the overwhelming volume of 500-600+ daily emails on the Linux Kernel Mailing List (LKML). Architected a complete solution featuring automated email parsing (EML, Atom, mbox formats), intelligent thread reconstruction, and AI-powered summarization using Google Gemini API. Implemented advanced caching strategy achieving 90% cost reduction and 80-90% cache hit rate. Designed Flask REST API with 10 endpoints supporting pagination, CORS, and full-text search via SQLite FTS5 indexes. Built React/TypeScript frontend with Tailwind CSS and integrated Auth0 for secure social authentication (GitHub, Google). The system processes 101 emails into 82 coherent threads with 100% AI coverage in under 10 minutes. Achieved sub-second search performance and reduced developer time from 3 hours to 15 minutes daily. Features context-aware summarization that identifies patches, bugs, security issues, affected subsystems, and action items. Designed for scalability to handle 10,000+ emails at ~$9/month operational cost.",
+    shortDescription: "fullstack platform democratizing Linux kernel contribution through AI summarization of 600+ daily mailing list emails",
+    fullDescription: "Built a production-ready fullstack application that solves a critical barrier to Linux kernel contribution: the overwhelming volume of 500-600+ daily emails on the Linux Kernel Mailing List (LKML). Architected a complete solution featuring automated email parsing (EML, Atom, mbox formats), intelligent thread reconstruction, and AI-powered summarization using Google Gemini API. Implemented advanced caching strategy achieving 90% cost reduction and 80-90% cache hit rate. Designed Flask REST API with 10 endpoints supporting pagination, CORS, and full-text search via SQLite FTS5 indexes. Built React/TypeScript frontend with Tailwind CSS and integrated Auth0 for secure social authentication (GitHub, Google). The system processes 101 emails into 82 coherent threads with 100% AI coverage in under 10 minutes. Achieved sub-second search performance and reduced developer time from 3 hours to 15 minutes daily. Features context-aware summarization that identifies patches, bugs, security issues, affected subsystems, and action items. Designed for scalability to handle 10,000+ emails at ~$9/month operational cost.",
     image: "/images/projects/lkml-dashboard.jpg",
     techStack: ["Python", "Flask", "React", "TypeScript", "Google Gemini API", "Auth0", "SQLite", "Tailwind CSS", "REST API"],
-    category: ["full-stack"],
+    category: ["fullstack"],
     timeline: "Hackathon project",
     githubUrl: "https://github.com/EArakoni/OSH",
     demoUrl: "https://github.com/EArakoni/OSH",
@@ -155,35 +145,15 @@ export const projects: Project[] = [
   {
     id: "project-research-summarizer",
     title: "Research Summarizer - AI-Powered Academic Paper Analysis",
-    shortDescription: "Full-stack platform for automated research paper discovery, summarization, and comparative analysis using multiple LLM providers",
+    shortDescription: "fullstack platform for automated research paper discovery, summarization, and comparative analysis using multiple LLM providers",
     fullDescription: "Built a production-deployed web application that revolutionizes academic literature review by automating the discovery, processing, and analysis of research papers. Architected a FastAPI backend that integrates with arXiv API to fetch papers, processes PDF documents with PyPDF2, and leverages multiple LLM providers (DeepSeek, Anthropic Claude, OpenAI GPT) for intelligent summarization. Implemented structured extraction pipeline that identifies key findings, methodologies, and implications from academic papers, with advanced comparative analysis feature that discovers connections and relationships across multiple papers. Designed SQLAlchemy-based persistence layer with support for both SQLite (development) and PostgreSQL (production) to track search history and cache summaries. Built modern React frontend with Chakra UI component library, featuring intuitive search interface, real-time processing status, markdown rendering for summaries, and comprehensive search history management. Deployed to production at researchtldr.xyz using Docker containerization and Nginx as reverse proxy. The platform enables researchers to reduce literature review time by 10x, efficiently processing multiple papers simultaneously while maintaining context and identifying cross-paper insights that might be missed in manual review.",
     image: "/images/projects/research-summarizer.jpg",
     techStack: ["Python", "FastAPI", "React", "Chakra UI", "SQLAlchemy", "PostgreSQL", "Docker", "Nginx", "DeepSeek API", "Claude API", "OpenAI API", "arXiv API", "PyPDF2"],
-    category: ["full-stack", "ml"],
+    category: ["fullstack", "ml"],
     timeline: "Personal project",
     githubUrl: "https://github.com/EfeKaralar/Research-Summarizer-App/",
     demoUrl: "https://researchtldr.xyz/"
   },
-  {
-    id: "project-11",
-    title: "PLACEHOLDERE-Commerce Microservices",
-    shortDescription: "Scalable e-commerce platform with microservices architecture",
-    fullDescription: "Architected and implemented complete e-commerce platform using microservices pattern. Services include user management, product catalog, inventory, payments, and notifications. Implements event-driven architecture with message queues and API gateway for routing.",
-    image: "/images/projects/ecommerce.jpg",
-    techStack: ["Next.js", "Node.js", "PostgreSQL", "RabbitMQ", "Docker", "Stripe API"],
-    category: ["fullstack"],
-    timeline: "8 months"
-  },
-  {
-    id: "project-12",
-    title: "PLACEHOLDERSocial Analytics Dashboard",
-    shortDescription: "Analytics platform for social media performance tracking",
-    fullDescription: "Built comprehensive analytics dashboard aggregating data from multiple social media platforms. Features real-time data processing, customizable reports, competitor analysis, and predictive insights using ML models. Processes 1M+ data points daily.",
-    image: "/images/projects/analytics-dash.jpg",
-    techStack: ["React", "Python", "FastAPI", "PostgreSQL", "Redis", "Chart.js"],
-    category: ["fullstack"],
-    timeline: "4 months"
-  }
 ];
 
 export const experiences: Experience[] = [
@@ -216,7 +186,7 @@ export const experiences: Experience[] = [
     description: [
       "TODO: UPDATE PLACEHOLDER TEXT",
       "Founded solo software consulting company delivering custom solutions for small businesses",
-      "Architected and deployed 5+ full-stack applications with React, Node.js, and cloud infrastructure",
+      "Architected and deployed 5+ fullstack applications with React, Node.js, and cloud infrastructure",
       "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
       "Implemented DevOps best practices including containerization, CI/CD, and monitoring"
     ]
@@ -259,7 +229,7 @@ export const experiences: Experience[] = [
     description: [
       "TODO: UPDATE PLACEHOLDER TEXT",
       "Founded solo software consulting company delivering custom solutions for small businesses",
-      "Architected and deployed 5+ full-stack applications with React, Node.js, and cloud infrastructure",
+      "Architected and deployed 5+ fullstack applications with React, Node.js, and cloud infrastructure",
       "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
       "Implemented DevOps best practices including containerization, CI/CD, and monitoring"
     ]
@@ -269,7 +239,7 @@ export const experiences: Experience[] = [
 export const projectCategories = [
   { id: 'all', label: 'All Projects' },
   { id: 'devops', label: 'DevOps' },
-  { id: 'ml', label: 'Machine Learning' },
   { id: 'systems', label: 'Systems Engineering' },
+  { id: 'ml', label: 'Machine Learning' },
   { id: 'fullstack', label: 'Full-Stack' }
 ] as const;
