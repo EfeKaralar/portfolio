@@ -13,8 +13,8 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
-      <Skills />
       <Projects />
+      <Skills />
       <Experience />
       <Contact />
       <Footer />

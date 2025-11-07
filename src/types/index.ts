@@ -18,10 +18,12 @@ export interface Project {
   fullDescription: string;
   image: string;
   techStack: string[];
-  category: 'devops' | 'ml' | 'systems' | 'fullstack';
+  category: string[],
+  // 'activeCategory' | devops' | 'ml' | 'systems' | 'fullstack';
   timeline?: string;
   demoUrl?: string;
   githubUrl?: string;
+  highlights?: string[];
 }
 
 export interface Experience {

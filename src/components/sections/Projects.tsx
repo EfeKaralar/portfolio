@@ -22,8 +22,8 @@ export const Projects = () => {
   };
 
   const filteredProjects = activeCategory === 'all'
-    ? projects.slice(0, 3)
-    : projects.filter(p => p.category === activeCategory).slice(0, 3);
+    ? projects.slice(0, 4)
+    : projects.filter(p => p.category.includes(activeCategory)).slice(0, 4);
 
   return (
     <>
@@ -57,8 +57,8 @@ export const Projects = () => {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all ${activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 shadow'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 shadow'
                   }`}
               >
                 {category.label}
