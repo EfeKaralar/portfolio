@@ -167,11 +167,10 @@ export const experiences: Experience[] = [
     endDate: "present",
     current: true,
     description: [
-      "TODO: UPDATE PLACEHOLDER TEXT",
-      "Developed microservices using Node.js and Docker, improving system modularity and deployment efficiency by 40%",
-      "Implemented CI/CD pipelines with GitHub Actions, reducing deployment time from 2 hours to 15 minutes",
-      "Collaborated with cross-functional teams to design and implement RESTful APIs serving 100k+ daily requests",
-      "Wrote comprehensive unit and integration tests achieving 85% code coverage"
+      "Engineered full-stack mobile application using React and Expo, integrating a 5-stage ML pipeline that analyzes audio, text, and behavioral data to provide dementia risk assessments",
+      "Designed and implemented RESTful APIs connecting frontend mobile experience to Python-based ML algorithms trained on validated clinical research methodologies including the Boston Cookie Theft Test",
+      "Collaborated directly with PhD researchers and clinical experts to translate complex algorithmic outputs into user-friendly mobile interfaces while maintaining medical accuracy",
+      "Ensured HIPAA compliance and data security standards by architecting solutions on Microsoft Azure's healthcare-certified infrastructure for handling Protected Health Information (PHI)"
     ]
   },
   {
@@ -184,11 +183,10 @@ export const experiences: Experience[] = [
     endDate: "present",
     current: true,
     description: [
-      "TODO: UPDATE PLACEHOLDER TEXT",
-      "Founded solo software consulting company delivering custom solutions for small businesses",
-      "Architected and deployed 5+ fullstack applications with React, Node.js, and cloud infrastructure",
-      "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
-      "Implemented DevOps best practices including containerization, CI/CD, and monitoring"
+      "Founded specialized hardware-software company delivering professional-grade guitar amplification solutions at consumer prices",
+      "Engineered custom embedded Linux system (RT Kernel Armbian) on Orange Pi Zero achieving <5ms audio latency—matching performance of professional amplification hardware costing 10-20x more",
+      "Developed automated boot and launch sequences integrating JACK Audio Connection Kit and Guitarix for seamless, production-ready guitar processing",
+      "Reduced barrier to entry for high-quality guitar amplification by 90% compared to traditional dedicated hardware solutions"
     ]
   },
   {
@@ -200,40 +198,40 @@ export const experiences: Experience[] = [
     startDate: "2020-08",
     endDate: "2024-12",
     description: [
-      "TODO: UPDATE PLACEHOLDER TEXT",
-      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems",
-      "Dean's List: Fall 2020, Spring 2021, Fall 2022, Spring 2023"
+      "Senior Capstone: Advanced Vehicle Team (AVT) Perception Department - Developed real-time computer vision models for autonomous vehicle navigation, achieving 3rd place overall in SAE AutoDrive Challenge II Competition (Year 3)",
+      "Executive Board Member: Pi Delta Psi Fraternity & Turkish Student Association",
+      "Relevant Coursework: Data Structures, Algorithms, Operating Systems, Computer Networks, Machine Learning, Database Systems"
     ]
   },
   {
     id: "work-3",
     type: "work",
-    title: "Lead Learning Assistant Assistant",
+    title: "Lead Learning Assistant",
     organization: "PSU Computer Science & Engineering Department",
     location: "State College, PA",
     startDate: "2022-01",
     endDate: "2024-05",
     description: [
-      "TODO: UPDATE PLACEHOLDER TEXT",
-      "Lead learning and laboratorysessions for Computer Engineering 270: Digital Design"
+      "Led instructional operations for Computer Engineering 270: Digital Design, supporting 250+ students per semester",
+      "Managed team of learning assistants while overseeing complete course operations including exam/lab/homework creation, grading infrastructure, and quality assurance",
+      "Delivered lectures and created supplementary video content when primary instructor was unavailable, receiving consistent feedback for clarity and approachability",
+      "Developed and implemented assessment materials for digital logic design and circuit analysis, ensuring alignment with course learning objectives"
     ]
   },
   {
     id: "work-4",
     type: "work",
-    title: "Software Engineering Intern & Co Op",
+    title: "Software Engineering Intern & Co-op",
     organization: "Bakkal",
     location: "State College, PA",
     startDate: "2023-06",
     endDate: "2023-11",
     description: [
-      "TODO: UPDATE PLACEHOLDER TEXT",
-      "Founded solo software consulting company delivering custom solutions for small businesses",
-      "Architected and deployed 5+ fullstack applications with React, Node.js, and cloud infrastructure",
-      "Managed complete project lifecycle from requirements gathering to deployment and maintenance",
-      "Implemented DevOps best practices including containerization, CI/CD, and monitoring"
+      "Led quality assurance initiatives by developing automated testing frameworks for multi-platform application suite (customer, driver, and merchant interfaces)",
+      "Implemented frontend features using React and JavaScript across three distinct user-facing applications",
+      "Collaborated with small, agile development team to rapidly iterate on features and resolve critical bugs in production environment"
     ]
-  },
+  }
 ];
 
 export const projectCategories = [
