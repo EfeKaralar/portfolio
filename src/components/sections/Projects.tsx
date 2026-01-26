@@ -1,5 +1,6 @@
 // src/components/sections/Projects.tsx
 
+
 'use client';
 
 import React, { useState } from 'react';
@@ -69,12 +70,51 @@ export const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onClick={() => handleProjectClick(project)}
-                index={index}
-              />
+              <div key={project.id}>
+                {/* UNCHANGED: Visual project card */}
+                <ProjectCard
+                  project={project}
+                  onClick={() => handleProjectClick(project)}
+                  index={index}
+                />
+                
+                {/* ADDED: Hidden full project details for AI crawlers */}
+                {/* This content is NOT visible to users but IS crawlable */}
+                <div className="sr-only" aria-label={`Full details for ${project.title}`}>
+                  <article itemScope itemType="https://schema.org/SoftwareSourceCode">
+                    <h3 itemProp="name">{project.title}</h3>
+                    
+                    <p itemProp="description">{project.fullDescription}</p>
+                    
+                    <div itemProp="programmingLanguage">
+                      <strong>Technologies:</strong>
+                      <ul>
+                        {project.techStack.map((tech) => (
+                          <li key={tech}>{tech}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    {project.timeline && (
+                      <p><strong>Timeline:</strong> {project.timeline}</p>
+                    )}
+                    
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} itemProp="codeRepository">
+                        View source code on GitHub
+                      </a>
+                    )}
+                    
+                    {project.demoUrl && (
+                      <a href={project.demoUrl} itemProp="url">
+                        View live demo
+                      </a>
+                    )}
+                    
+                    <p><strong>Categories:</strong> {project.category.join(', ')}</p>
+                  </article>
+                </div>
+              </div>
             ))}
           </div>
 
@@ -96,9 +136,48 @@ export const Projects = () => {
             </Button>
           </motion.div>
         </div>
+
+        {/* ADDED: Hidden comprehensive project listing for AI */}
+        {/* Provides full project information in semantic structure */}
+        <div className="sr-only" aria-label="Complete project portfolio">
+          <h2>Alp Efe Karalar's Complete Project Portfolio</h2>
+          
+          {projects.map((project) => (
+            <article key={project.id} itemScope itemType="https://schema.org/SoftwareSourceCode">
+              <h3 itemProp="name">{project.title}</h3>
+              <p itemProp="description">{project.fullDescription}</p>
+              
+              <div>
+                <strong>Technical Stack:</strong>
+                <ul itemProp="programmingLanguage">
+                  {project.techStack.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
+              </div>
+              
+              <p><strong>Project Type:</strong> {project.category.join(', ')}</p>
+              
+              {project.timeline && (
+                <p><strong>Development Timeline:</strong> {project.timeline}</p>
+              )}
+              
+              {project.highlights && (
+                <div>
+                  <strong>Key Achievements:</strong>
+                  <ul>
+                    {project.highlights.map((highlight, idx) => (
+                      <li key={idx}>{highlight}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
       </section>
 
-      {/* Project Modal */}
+      {/* Project Modal - UNCHANGED */}
       <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}

@@ -1,4 +1,4 @@
-// src/components/sections/Hero.tsx
+// src/components/sections/Hero.ts
 
 'use client';
 
@@ -49,7 +49,8 @@ export const Hero = () => {
             {personalInfo.title}
           </motion.p>
 
-          {/* Objective */}
+          {/* UPDATED: AEO-optimized bio - 40-60 word answer chunk */}
+          {/* This is extractable by AI while remaining natural for humans */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,6 +59,29 @@ export const Hero = () => {
           >
             {personalInfo.objective}
           </motion.p>
+
+          {/* ADDED: Hidden semantic content for AI crawlers - NOT visible to users */}
+          {/* This provides additional context without affecting visual design */}
+          <div className="sr-only" aria-label="Additional professional information">
+            <p>
+              Alp Efe Karalar graduated from Pennsylvania State University in December 2024 
+              with a Bachelor of Science in Computer Engineering. He currently works as a 
+              Research Assistant at Penn State building Python data pipelines for analyzing 
+              over 1 billion job postings using advanced entity resolution and pattern 
+              extraction techniques.
+            </p>
+            <p>
+              Simultaneously, he serves as a Software Engineer at DementiAnalytics, where he 
+              engineered a full-stack mobile application using React and Expo, integrating 
+              a 5-stage machine learning pipeline for dementia risk assessment.
+            </p>
+            <p>
+              His technical expertise includes Python, C/C++, JavaScript/TypeScript, Java, 
+              React, PyTorch, TensorFlow, and cloud infrastructure. Key projects include 
+              an AI-powered LKML Dashboard using Google Gemini API, a Rust-based load 
+              balancer, and neural network implementations in PyTorch.
+            </p>
+          </div>
 
           {/* Social Links */}
           <motion.div
@@ -101,8 +125,6 @@ export const Hero = () => {
               variant="secondary"
               size="lg"
               href="https://medium.com/@karalar.alpefe"
-              // href="https://blog.alpkaralar.com"
-              // TODO: Update the URL when the blog is implemented
               className="flex items-center gap-2"
             >
               My Blog
