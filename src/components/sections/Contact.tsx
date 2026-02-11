@@ -10,6 +10,7 @@ import { SocialLinks } from '../ui/SocialLinks';
 import { socialLinks, personalInfo } from '@/lib/data';
 
 export const Contact = () => {
+  const isStaticExport = process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'gh-pages';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -117,6 +118,23 @@ export const Contact = () => {
                 Thank you for reaching out. I&apos;ll get back to you soon!
               </p>
             </motion.div>
+          ) : isStaticExport ? (
+            <div className="text-center py-12">
+              <Mail className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                Let&apos;s Connect
+              </h3>
+              <p className="text-slate-600 mb-6">
+                The contact form is disabled on GitHub Pages. Email me directly:
+              </p>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
+              >
+                <Mail className="w-5 h-5" />
+                {personalInfo.email}
+              </a>
+            </div>
           ) : (
             // Contact Form
             <form onSubmit={handleSubmit} className="space-y-6">
