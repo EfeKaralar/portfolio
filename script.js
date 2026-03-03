@@ -197,8 +197,8 @@ function renderSkills() {
   container.innerHTML = skills
     .map(
       (skillCategory) => `
-        <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-          <h3 class="text-xl font-bold text-slate-900 mb-4 pb-3 border-b-2 border-blue-600">${skillCategory.category}</h3>
+        <div class="terminal-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-xl font-bold text-slate-900 mb-4 pb-3 border-b border-slate-200">${skillCategory.category}</h3>
           <div class="flex flex-wrap gap-2">
             ${skillCategory.items
               .map(
@@ -220,10 +220,10 @@ function renderExperience() {
     .map(
       (exp) => `
         <div class="relative">
-          <div class="absolute left-0 md:left-6 w-8 h-8 md:w-12 md:h-12 -translate-x-1/2 bg-white rounded-full border-4 border-blue-600 flex items-center justify-center shadow-lg z-10">
-            <span class="text-blue-600">${exp.type === "work" ? "💼" : "🎓"}</span>
+          <div class="absolute left-0 md:left-6 w-8 h-8 md:w-12 md:h-12 -translate-x-1/2 bg-white rounded-full border-2 border-slate-200 flex items-center justify-center shadow-lg z-10">
+            <span class="text-blue-600">${exp.type === "work" ? "[W]" : "[E]"}</span>
           </div>
-          <div class="ml-12 md:ml-20 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="ml-12 md:ml-20 terminal-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div class="mb-4">
               <div class="flex items-start justify-between flex-wrap gap-2 mb-2">
                 <h3 class="text-xl font-bold text-slate-900">${exp.title}</h3>
@@ -258,8 +258,8 @@ function renderProjectCategories() {
       (category) => `
       <button data-category="${category.id}" class="category-btn px-6 py-3 rounded-lg font-medium transition-all ${
         activeCategory === category.id
-          ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg"
-          : "bg-white text-slate-700 hover:bg-slate-100 shadow"
+          ? "btn btn-primary"
+          : "btn btn-outline"
       }">${category.label}</button>`
     )
     .join("");
@@ -289,7 +289,7 @@ function openModal(projectId) {
 
   const techContainer = document.getElementById("modal-tech");
   techContainer.innerHTML = project.techStack
-    .map((tech) => `<span class="px-4 py-2 bg-slate-100 text-slate-700 text-sm rounded-lg font-medium">${tech}</span>`)
+    .map((tech) => `<span class="px-4 py-2 bg-slate-100 text-slate-700 text-sm rounded-lg font-medium border border-slate-200">${tech}</span>`)
     .join("");
 
   const demoBtn = document.getElementById("modal-demo");
@@ -332,10 +332,10 @@ function renderProjects() {
       (project) => `
         <div>
           <article data-project-id="${project.id}" class="project-card group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer">
-            <div class="relative h-48 bg-gradient-to-br from-slate-200 to-slate-300 overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-blue-400 via-cyan-400 to-purple-400 opacity-60"></div>
+            <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-200">
+              <div class="absolute inset-0 opacity-60"></div>
               <div class="absolute inset-0 flex items-center justify-center">
-                <span class="text-white text-6xl font-bold opacity-20">${project.title.charAt(0)}</span>
+                <span class="text-slate-600 text-6xl font-bold opacity-20">${project.title.charAt(0)}</span>
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">↗</div>
@@ -402,10 +402,10 @@ function setupNav() {
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
-      navbar.classList.add("bg-white/80", "backdrop-blur-md", "shadow-lg");
+      navbar.classList.add("bg-black/70", "backdrop-blur-md", "shadow-lg", "border-slate-200");
       navbar.classList.remove("bg-transparent");
     } else {
-      navbar.classList.remove("bg-white/80", "backdrop-blur-md", "shadow-lg");
+      navbar.classList.remove("bg-black/70", "backdrop-blur-md", "shadow-lg", "border-slate-200");
       navbar.classList.add("bg-transparent");
     }
   });

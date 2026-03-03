@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
@@ -96,12 +96,12 @@
       }
     </script>
   </head>
-  <body class="antialiased">
+  <body class="antialiased terminal-theme">
     <main class="relative">
-      <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent">
+      <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent border-b border-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
-            <button data-scroll="#home" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">AK</button>
+            <button data-scroll="#home" class="text-xl font-bold terminal-logo">AK</button>
             <div class="hidden md:flex items-center space-x-1">
               <button data-scroll="#home" class="nav-link">Home</button>
               <button data-scroll="#skills" class="nav-link">Skills</button>
@@ -109,12 +109,12 @@
               <button data-scroll="#experience" class="nav-link">Experience</button>
               <button data-scroll="#contact" class="nav-link">Contact</button>
             </div>
-            <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Open menu">
-              <span class="text-slate-700 text-2xl leading-none">☰</span>
+            <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg terminal-mobile-toggle transition-colors" aria-label="Open menu">
+              <span class="text-2xl leading-none">☰</span>
             </button>
           </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
+        <div id="mobile-menu" class="hidden md:hidden terminal-mobile-menu border-t">
           <div class="px-4 py-4 space-y-2">
             <button data-scroll="#home" class="mobile-nav-link">Home</button>
             <button data-scroll="#skills" class="mobile-nav-link">Skills</button>
@@ -125,50 +125,55 @@
         </div>
       </nav>
 
-      <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <div class="absolute inset-0 animated-gradient opacity-10"></div>
-        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
-
+      <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 section-shell home-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="text-center fade-in">
-            <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-4">
-              <span class="gradient-text">Alp Efe Karalar</span>
-            </h1>
-            <p class="text-xl sm:text-2xl text-slate-600 mb-6">Software Engineer & AI/ML Specialist</p>
-            <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Computer Engineering graduate from Penn State University (December 2024) specializing in AI/ML systems, large-scale data pipelines, and full-stack development. Currently building machine learning platforms and processing billion-scale datasets while seeking opportunities in AI strategy and Answer Engine Optimization.
-            </p>
+          <div class="fade-in home-grid">
+            <div class="home-copy">
+              <p class="terminal-kicker">Software Engineer</p>
+              <h1 class="home-title">
+                <span class="home-title-line">Hello I'm</span>
+                <span class="home-title-line home-name-accent">Alp Efe</span>
+                <span class="home-title-line home-name-accent">Karalar</span>
+              </h1>
+              <p class="text-xl sm:text-2xl text-slate-600 mb-6">Software Engineer & AI/ML Specialist</p>
+              <p class="text-lg text-slate-600 max-w-3xl mb-8 leading-relaxed">
+                Computer Engineering graduate from Penn State University (December 2024) specializing in AI/ML systems, large-scale data pipelines, and full-stack development. Currently building machine learning platforms and processing billion-scale datasets while seeking opportunities in AI strategy and Answer Engine Optimization.
+              </p>
 
-            <div class="sr-only" aria-label="Additional professional information">
-              <p>
-                Alp Efe Karalar graduated from Pennsylvania State University in December 2024 with a Bachelor of Science in Computer Engineering. He currently works as a Research Assistant at Penn State building Python data pipelines for analyzing over 1 billion job postings using advanced entity resolution and pattern extraction techniques.
-              </p>
-              <p>
-                Simultaneously, he serves as a Software Engineer at DementiAnalytics, where he engineered a full-stack mobile application using React and Expo, integrating a 5-stage machine learning pipeline for dementia risk assessment.
-              </p>
-              <p>
-                His technical expertise includes Python, C/C++, JavaScript/TypeScript, Java, React, PyTorch, TensorFlow, and cloud infrastructure. Key projects include an AI-powered LKML Dashboard using Google Gemini API, a Rust-based load balancer, and neural network implementations in PyTorch.
-              </p>
+              <div class="sr-only" aria-label="Additional professional information">
+                <p>
+                  Alp Efe Karalar graduated from Pennsylvania State University in December 2024 with a Bachelor of Science in Computer Engineering. He currently works as a Research Assistant at Penn State building Python data pipelines for analyzing over 1 billion job postings using advanced entity resolution and pattern extraction techniques.
+                </p>
+                <p>
+                  Simultaneously, he serves as a Software Engineer at DementiAnalytics, where he engineered a full-stack mobile application using React and Expo, integrating a 5-stage machine learning pipeline for dementia risk assessment.
+                </p>
+                <p>
+                  His technical expertise includes Python, C/C++, JavaScript/TypeScript, Java, React, PyTorch, TensorFlow, and cloud infrastructure. Key projects include an AI-powered LKML Dashboard using Google Gemini API, a Rust-based load balancer, and neural network implementations in PyTorch.
+                </p>
+              </div>
+
+              <div class="mb-8 flex flex-wrap gap-4">
+                <a href="https://github.com/efekaralar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">GitHub</a>
+                <a href="https://www.linkedin.com/in/alp-efe-karalar/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                <a href="https://cydoniatech.org" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="CydoniaTech">CydoniaTech</a>
+              </div>
+
+              <div class="flex flex-wrap gap-4">
+                <a href="/resume.pdf" download class="btn btn-primary btn-lg">Get Resume</a>
+                <a href="mailto:karalar.alpefe@gmail.com" class="btn btn-outline btn-lg">Contact Me</a>
+                <a href="https://medium.com/@karalar.alpefe" class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">My Blog</a>
+              </div>
             </div>
-
-            <div class="mb-8 flex justify-center gap-4">
-              <a href="https://github.com/efekaralar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">GitHub</a>
-              <a href="https://www.linkedin.com/in/alp-efe-karalar/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
-              <a href="https://cydoniatech.org" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="CydoniaTech">CydoniaTech</a>
-            </div>
-
-            <div class="flex flex-wrap gap-4 justify-center">
-              <a href="/resume.pdf" download class="btn btn-primary btn-lg">Get Resume</a>
-              <a href="mailto:karalar.alpefe@gmail.com" class="btn btn-outline btn-lg">Contact Me</a>
-              <a href="https://medium.com/@karalar.alpefe" class="btn btn-secondary btn-lg" target="_blank" rel="noopener noreferrer">My Blog</a>
+            <div class="home-visual">
+              <div class="home-avatar-ring">
+                <img src="/headshot.jpg" alt="Portrait of Alp Efe Karalar" class="home-avatar" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section id="projects" class="py-20 section-shell">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-slate-900 mb-4">Featured Projects</h2>
@@ -186,7 +191,7 @@
         <div class="sr-only" aria-label="Complete project portfolio" id="all-projects-hidden"></div>
       </section>
 
-      <section id="skills" class="py-20 bg-white">
+      <section id="skills" class="py-20 section-shell">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-slate-900 mb-4">Skills & Technologies</h2>
@@ -196,7 +201,7 @@
         </div>
       </section>
 
-      <section id="experience" class="py-20 bg-white">
+      <section id="experience" class="py-20 section-shell">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-slate-900 mb-4">Experience & Education</h2>
@@ -204,13 +209,13 @@
           </div>
 
           <div class="relative">
-            <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 via-cyan-600 to-purple-600 hidden md:block"></div>
+            <div class="absolute left-8 top-0 bottom-0 w-0.5 terminal-line hidden md:block"></div>
             <div id="experience-list" class="space-y-12"></div>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section id="contact" class="py-20 section-shell">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-8">
             <h2 class="text-4xl font-bold text-slate-900 mb-4">Get In Touch</h2>
@@ -218,7 +223,7 @@
               Have a project in mind or want to discuss opportunities? Feel free to reach out.
             </p>
             <div class="flex flex-col items-center gap-4">
-              <a href="mailto:karalar.alpefe@gmail.com" class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-lg">
+              <a href="mailto:karalar.alpefe@gmail.com" class="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium text-lg email-link">
                 karalar.alpefe@gmail.com
               </a>
               <div class="flex justify-center gap-4">
@@ -229,7 +234,7 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-center py-12">
+          <div class="terminal-card rounded-2xl shadow-xl p-8 md:p-10 text-center py-12">
             <h3 class="text-2xl font-bold text-slate-900 mb-2">Let's Connect</h3>
             <p class="text-slate-600 mb-6">Click below to open your email client and contact me directly.</p>
             <a href="mailto:karalar.alpefe@gmail.com" class="btn btn-primary btn-lg">Contact me</a>
@@ -237,7 +242,7 @@
         </div>
       </section>
 
-      <footer class="bg-slate-900 text-white py-12">
+      <footer class="site-footer py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex flex-col items-center space-y-6">
             <div class="flex gap-4">
@@ -257,10 +262,10 @@
     <div id="project-modal" class="fixed inset-0 z-50 hidden">
       <div id="project-modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
       <div class="relative z-10 min-h-full flex items-center justify-center p-4">
-        <div class="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <button id="modal-close" class="absolute top-4 right-4 z-10 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors" aria-label="Close modal">✕</button>
-          <div class="relative h-64 bg-gradient-to-br from-blue-400 via-cyan-400 to-purple-400 flex items-center justify-center">
-            <span id="modal-letter" class="text-white text-8xl font-bold opacity-20"></span>
+        <div class="relative w-full max-w-3xl terminal-card rounded-2xl shadow-2xl overflow-hidden">
+          <button id="modal-close" class="absolute top-4 right-4 z-10 p-2 rounded-full transition-colors modal-close-btn" aria-label="Close modal">✕</button>
+          <div class="relative h-64 modal-header flex items-center justify-center">
+            <span id="modal-letter" class="text-8xl font-bold opacity-20"></span>
           </div>
           <div class="p-8">
             <h2 id="modal-title" class="text-3xl font-bold text-slate-900 mb-4"></h2>
