@@ -108,6 +108,7 @@ const experiences = [
 const projects = [
   {
     id: "project-lkml-dashboard",
+    image: "assets/images/projects/lkml-dashboard.jpg",
     title: "LKML Dashboard - AI-Powered Linux Kernel Development Tool",
     shortDescription: "Full-stack platform democratizing Linux kernel contribution through AI summarization of 600+ daily mailing list emails",
     fullDescription: "Built production-ready full-stack application addressing critical barrier to Linux kernel contribution: overwhelming volume of 500-600+ daily emails. Features automated email parsing, intelligent thread reconstruction, and AI-powered summarization using Google Gemini API. Implemented caching achieving 90% cost reduction and 80-90% cache hit rate. Flask REST API with 10 endpoints, full-text search via SQLite FTS5. React/TypeScript frontend with Auth0 authentication. Processes 101 emails into 82 threads with 100% AI coverage in <10 minutes, reducing developer time from 3 hours to 15 minutes daily.",
@@ -119,6 +120,7 @@ const projects = [
   },
   {
     id: "project-rust-load-balancer",
+    image: "assets/images/projects/rust-load-balancer.jpg",
     title: "Load Balancer & Reverse Proxy in Rust",
     shortDescription: "High-performance HTTP load balancer built from scratch with 10,000+ concurrent connection handling",
     fullDescription: "Architected production-ready Layer 7 load balancer in Rust using Tokio async runtime. Handles 10,000+ concurrent connections with ~20MB memory footprint. Features HTTP/1.1 parsing, four load balancing algorithms, intelligent health checking, TLS/SSL termination with RustLS, and connection pooling achieving 60% latency reduction. Achieved <5ms P99 latency at 10,000 req/s throughput.",
@@ -130,6 +132,7 @@ const projects = [
   },
   {
     id: "project-mdadm",
+    image: "assets/images/projects/linux-raid.jpg",
     title: "Linux RAID Storage System in C",
     shortDescription: "Low-level RAID device emulator with LRU caching achieving 87.9% cache hit rate",
     fullDescription: "Developed full-featured linear RAID device emulator in C integrating 16 simulated JBOD disks. Implemented write-through caching with custom LRU eviction policy, reducing average read latency by 30% with up to 87.9% cache hit rate. Comprehensive testing ensuring data integrity and fault isolation at systems level.",
@@ -141,6 +144,7 @@ const projects = [
   },
   {
     id: "project-music-rnn",
+    image: "assets/images/projects/music-rnn.jpg",
     title: "Classical Music Generation with Neural Networks",
     shortDescription: "Deep learning system for AI-powered piano composition using PyTorch and MAESTRO dataset",
     fullDescription: "Built music generation system using RNNs learning from 200+ hours of piano performances. Processes 7 million notes from MAESTRO dataset with custom MIDI processing pipeline. LSTM architecture with multi-head outputs for pitch, timing, and duration prediction. Features temperature-based sampling, tempo scaling, and comprehensive visualization tools. Demonstrates practical sequence modeling in creative domains.",
@@ -152,6 +156,7 @@ const projects = [
   },
   {
     id: "project-cicd",
+    image: "assets/images/projects/cicd-portfolio.jpg",
     title: "Automated CI/CD Portfolio Deployment",
     shortDescription: "Enterprise-grade DevOps pipeline with Docker, GitHub Actions, and zero-downtime deployments",
     fullDescription: "Architected complete DevOps solution featuring containerized Next.js with multi-stage Docker builds, automated CI/CD via GitHub Actions, Nginx reverse proxy with SSL/TLS. Security hardened with UFW firewall, Fail2Ban, non-root containers. Achieved 2-minute deployment cycles with 99.9% uptime.",
@@ -163,6 +168,7 @@ const projects = [
   },
   {
     id: "project-research-summarizer",
+    image: "assets/images/projects/research-summarizer.jpg",
     title: "Research Summarizer - AI-Powered Paper Analysis",
     shortDescription: "Full-stack platform for automated research paper discovery and comparative analysis",
     fullDescription: "Built web application automating academic literature review with arXiv API integration, PDF processing, and multi-LLM summarization (DeepSeek, Claude, GPT). Structured extraction pipeline identifies key findings and methodologies. SQLAlchemy persistence with SQLite/PostgreSQL support. React frontend with Chakra UI. Deployed at researchtldr.xyz with Docker and Nginx. Reduces literature review time by 10x.",
@@ -188,6 +194,25 @@ function formatDate(dateString) {
   const [year, month] = dateString.split("-");
   const date = new Date(parseInt(year, 10), parseInt(month, 10) - 1);
   return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+function getExperienceTypeIcon(type) {
+  if (type === "education") {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" class="experience-type-icon" aria-hidden="true">
+        <path d="M12 4L2.5 9L12 14L21.5 9L12 4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 11.5V15.5C6 15.5 8 18 12 18C16 18 18 15.5 18 15.5V11.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 24 24" fill="none" class="experience-type-icon" aria-hidden="true">
+      <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4H13.5C14.33 4 15 4.67 15 5.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.8" />
+      <path d="M4 12H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+    </svg>
+  `;
 }
 
 function renderSkills() {
@@ -220,8 +245,8 @@ function renderExperience() {
     .map(
       (exp) => `
         <div class="relative">
-          <div class="absolute left-0 md:left-6 w-8 h-8 md:w-12 md:h-12 -translate-x-1/2 bg-white rounded-full border-2 border-slate-200 flex items-center justify-center shadow-lg z-10">
-            <span class="text-blue-600">${exp.type === "work" ? "[W]" : "[E]"}</span>
+          <div class="absolute left-0 md:left-6 w-8 h-8 md:w-12 md:h-12 -translate-x-1/2 bg-white rounded-full border-2 border-slate-200 flex items-center justify-center shadow-lg z-10 experience-badge-shell">
+            <span class="experience-fallback">${getExperienceTypeIcon(exp.type)}</span>
           </div>
           <div class="ml-12 md:ml-20 terminal-card rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
             <div class="mb-4">
@@ -283,6 +308,26 @@ function openModal(projectId) {
   document.getElementById("modal-letter").textContent = project.title.charAt(0);
   document.getElementById("modal-title").textContent = project.title;
   document.getElementById("modal-description").textContent = project.fullDescription;
+  const modalCover = document.getElementById("modal-cover");
+  const modalCoverOverlay = document.getElementById("modal-cover-overlay");
+  const modalLetter = document.getElementById("modal-letter");
+
+  if (project.image && modalCover && modalCoverOverlay && modalLetter) {
+    modalCover.src = project.image;
+    modalCover.alt = `${project.title} preview image`;
+    modalCover.classList.remove("hidden");
+    modalCoverOverlay.classList.remove("hidden");
+    modalLetter.classList.add("hidden");
+    modalCover.onerror = () => {
+      modalCover.classList.add("hidden");
+      modalCoverOverlay.classList.add("hidden");
+      modalLetter.classList.remove("hidden");
+    };
+  } else if (modalCover && modalCoverOverlay && modalLetter) {
+    modalCover.classList.add("hidden");
+    modalCoverOverlay.classList.add("hidden");
+    modalLetter.classList.remove("hidden");
+  }
 
   const timeline = document.getElementById("modal-timeline");
   timeline.textContent = project.timeline || "";
@@ -333,8 +378,12 @@ function renderProjects() {
         <div>
           <article data-project-id="${project.id}" class="project-card group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer">
             <div class="relative h-48 bg-slate-100 overflow-hidden border-b border-slate-200">
-              <div class="absolute inset-0 opacity-60"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
+              ${
+                project.image
+                  ? `<img src="${project.image}" alt="${project.title} preview" class="project-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />`
+                  : ""
+              }
+              <div class="absolute inset-0 flex items-center justify-center project-cover-fallback" style="${project.image ? "display:none;" : "display:flex;"}">
                 <span class="text-slate-600 text-6xl font-bold opacity-20">${project.title.charAt(0)}</span>
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
