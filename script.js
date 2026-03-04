@@ -484,6 +484,26 @@ function setupModalControls() {
   });
 }
 
+function setupStickyContact() {
+  const group = document.getElementById("sticky-contact-group");
+  if (!group) return;
+  const hero = document.getElementById("home");
+  const contact = document.getElementById("contact");
+  function update() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    const contactTop = contact.getBoundingClientRect().top;
+    const pastHero = heroBottom < 0;
+    const atContact = contactTop <= window.innerHeight;
+    if (pastHero && !atContact) {
+      group.classList.add("visible");
+    } else {
+      group.classList.remove("visible");
+    }
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
 function init() {
   document.getElementById("current-year").textContent = String(new Date().getFullYear());
   renderSkills();
@@ -493,6 +513,7 @@ function init() {
   renderHiddenAllProjects();
   setupNav();
   setupModalControls();
+  setupStickyContact();
 }
 
 document.addEventListener("DOMContentLoaded", init);
