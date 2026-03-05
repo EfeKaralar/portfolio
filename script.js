@@ -107,76 +107,144 @@ const experiences = [
 
 const projects = [
   {
+    id: "project-sevanbot",
+    image: "https://projects.alpkaralar.com/assets/images/projects/sevanbot.jpg",
+    title: "SevanBOT",
+    subtitle: "RAG Pipeline for Writer Persona",
+    shortDescription: "Retrieval-augmented generation pipeline turning 1,300+ articles into a contextual AI writer persona with hybrid dense/sparse search and multi-turn conversation memory.",
+    fullDescription: "SevanBOT is a production RAG system built to replicate a specific writer's voice and knowledge base for interactive Q&A. The pipeline orchestrates scraping → Markdown conversion → semantic chunking, transforming ~1,300 articles into ~7,100 retrieval-ready contextual chunks.\n\nThe retrieval stack is fully modular, supporting three strategies: dense retrieval via Qdrant vector database with OpenAI embeddings, sparse retrieval via BM25, and hybrid fusion using Reciprocal Rank Fusion (RRF) and weighted scoring. A CLI comparator allows direct benchmarking of retrieval quality across all three strategies side-by-side.\n\nThe backend is a FastAPI chat service integrating contextual retrieval with Claude-powered RAG answering and multi-turn conversation memory, enabling nuanced, persona-consistent responses grounded entirely in the author's actual writing.",
+    techStack: ["Python", "FastAPI", "Qdrant", "OpenAI Embeddings", "BM25", "Claude API", "RAG", "Vector Search"],
+    category: ["ml", "fullstack"],
+    timeline: "Personal project",
+    date: "2025-02",
+    githubUrl: "https://github.com/EfeKaralar/SevanBOT",
+    demoUrl: "https://sevanbot.alpkaralar.com"
+  },
+  {
     id: "project-lkml-dashboard",
-    image: "assets/images/projects/lkml-dashboard.jpg",
-    title: "LKML Dashboard - AI-Powered Linux Kernel Development Tool",
-    shortDescription: "Full-stack platform democratizing Linux kernel contribution through AI summarization of 600+ daily mailing list emails",
-    fullDescription: "Built production-ready full-stack application addressing critical barrier to Linux kernel contribution: overwhelming volume of 500-600+ daily emails. Features automated email parsing, intelligent thread reconstruction, and AI-powered summarization using Google Gemini API. Implemented caching achieving 90% cost reduction and 80-90% cache hit rate. Flask REST API with 10 endpoints, full-text search via SQLite FTS5. React/TypeScript frontend with Auth0 authentication. Processes 101 emails into 82 threads with 100% AI coverage in <10 minutes, reducing developer time from 3 hours to 15 minutes daily.",
-    techStack: ["Python", "Flask", "React", "TypeScript", "Google Gemini API", "Auth0", "SQLite", "Tailwind CSS"],
+    image: "https://projects.alpkaralar.com/assets/images/projects/lkml-dashboard.jpg",
+    title: "LKML Dashboard",
+    subtitle: "AI-Powered Linux Kernel Development Tool",
+    shortDescription: "Full-stack platform processing 600+ daily Linux kernel mailing list emails with AI summarization, cutting developer review time from 3 hours to 15 minutes.",
+    fullDescription: "The Linux Kernel Mailing List (LKML) receives 500–600+ emails per day, creating an overwhelming barrier to contribution. This platform automates the entire review workflow.\n\nThe backend is a Flask REST API with 10 endpoints and SQLite FTS5 full-text search, featuring automated IMAP-based email ingestion, intelligent thread reconstruction, and Google Gemini API summarization with 90% cost reduction via response caching (80–90% cache hit rate). Auth0 handles authentication.\n\nThe React/TypeScript frontend provides thread browsing, full-text search, and AI summary views. The system processes 101 emails into 82 reconstructed threads with 100% AI coverage in under 10 minutes — reducing daily developer review time from 3 hours to 15 minutes. Built as a hackathon project.",
+    techStack: ["Python", "Flask", "React", "TypeScript", "Google Gemini API", "Auth0", "SQLite FTS5", "Tailwind CSS"],
     category: ["fullstack", "ml"],
-    timeline: "Hackathon project",
+    timeline: "Hackathon",
+    date: "2024-12",
     githubUrl: "https://github.com/EArakoni/OSH",
-    demoUrl: "https://github.com/EArakoni/OSH"
+    demoUrl: null
+  },
+  {
+    id: "project-research-summarizer",
+    image: "https://projects.alpkaralar.com/assets/images/projects/research-summarizer.jpg",
+    title: "Research Summarizer",
+    subtitle: "AI Academic Paper Analysis Platform",
+    shortDescription: "Full-stack platform automating academic literature review with multi-LLM summarization of arXiv papers, deployed live at researchtldr.xyz.",
+    fullDescription: "Research Summarizer automates the most time-consuming part of academic work: reading and synthesizing papers. The platform integrates directly with the arXiv API for paper discovery, downloads and parses PDFs via PyPDF2, and routes them through multiple LLM providers (DeepSeek, Claude, GPT) for structured summarization.\n\nThe FastAPI backend uses SQLAlchemy ORM with PostgreSQL (or SQLite for local dev), caching processed summaries to avoid redundant API calls and reduce cost. The React + Chakra UI frontend provides a clean research dashboard with paper search, summary display, and side-by-side comparison views.\n\nDeployed at researchtldr.xyz with Docker and Nginx on a VPS. The platform reduces literature review time by an estimated 10× compared to manual reading.",
+    techStack: ["Python", "FastAPI", "React", "Chakra UI", "SQLAlchemy", "PostgreSQL", "Docker", "Nginx", "Claude API", "DeepSeek API"],
+    category: ["fullstack", "ml"],
+    timeline: "Personal project",
+    date: "2024-11",
+    githubUrl: "https://github.com/EfeKaralar/Research-Summarizer-App",
+    demoUrl: "https://researchtldr.xyz"
   },
   {
     id: "project-rust-load-balancer",
-    image: "assets/images/projects/rust-load-balancer.jpg",
-    title: "Load Balancer & Reverse Proxy in Rust",
-    shortDescription: "High-performance HTTP load balancer built from scratch with 10,000+ concurrent connection handling",
-    fullDescription: "Architected production-ready Layer 7 load balancer in Rust using Tokio async runtime. Handles 10,000+ concurrent connections with ~20MB memory footprint. Features HTTP/1.1 parsing, four load balancing algorithms, intelligent health checking, TLS/SSL termination with RustLS, and connection pooling achieving 60% latency reduction. Achieved <5ms P99 latency at 10,000 req/s throughput.",
-    techStack: ["Rust", "Tokio", "HTTP/1.1", "TLS/SSL", "RustLS", "Docker"],
+    image: "https://projects.alpkaralar.com/assets/images/projects/rust-load-balancer.jpg",
+    title: "Rust Load Balancer",
+    subtitle: "High-Performance Layer 7 Reverse Proxy",
+    shortDescription: "Production-ready HTTP load balancer built from scratch in Rust, handling 10,000+ concurrent connections with <5ms P99 latency and a 20MB memory footprint.",
+    fullDescription: "A production-grade Layer 7 load balancer and reverse proxy built entirely from scratch in Rust using the Tokio async runtime.\n\nCore features: HTTP/1.1 request parsing, four load balancing algorithms (round-robin, least-connections, weighted round-robin, IP hash), intelligent active health checking with automatic backend failover, TLS/SSL termination via RustLS, and connection pooling achieving a 60% latency reduction.\n\nBenchmark results at 10,000 req/s: <5ms P99 latency, 10,000+ concurrent connections sustained, ~20MB memory footprint. Built over 3 weeks as an exercise in systems programming and high-performance async Rust.",
+    techStack: ["Rust", "Tokio", "HTTP/1.1", "TLS/SSL", "RustLS", "Docker", "Async Programming"],
     category: ["systems", "devops"],
     timeline: "3 weeks",
+    date: "2024-09",
     githubUrl: "https://github.com/EfeKaralar/rust-proxy",
-    demoUrl: "https://github.com/EfeKaralar/rust-proxy"
+    demoUrl: null
   },
   {
-    id: "project-mdadm",
-    image: "assets/images/projects/linux-raid.jpg",
-    title: "Linux RAID Storage System in C",
-    shortDescription: "Low-level RAID device emulator with LRU caching achieving 87.9% cache hit rate",
-    fullDescription: "Developed full-featured linear RAID device emulator in C integrating 16 simulated JBOD disks. Implemented write-through caching with custom LRU eviction policy, reducing average read latency by 30% with up to 87.9% cache hit rate. Comprehensive testing ensuring data integrity and fault isolation at systems level.",
-    techStack: ["C", "Memory Management", "RAID", "LRU Cache", "Systems Programming", "Unix/Linux"],
-    category: ["systems"],
-    timeline: "3 weeks",
-    githubUrl: "https://github.com/efekaralar/mdadm-linear-device",
-    demoUrl: "https://github.com/efekaralar/mdadm-linear-device"
+    id: "project-avt-autodrive",
+    image: "https://projects.alpkaralar.com/assets/images/projects/avt-autodrive.jpg",
+    title: "Autonomous Vehicle Perception",
+    subtitle: "SAE AutoDrive Challenge II — Penn State AVT",
+    shortDescription: "Real-time YOLO-based object detection and lane detection deployed on an autonomous Chevrolet Bolt EUV — 3rd place overall at SAE AutoDrive Challenge II Year 3.",
+    fullDescription: "The SAE AutoDrive Challenge II is a 4-year university competition challenging 10 elite teams to engineer a fully autonomous Chevrolet Bolt EUV meeting SAE Level 4 autonomy standards.\n\nAs a member of the Perception Department, I developed real-time computer vision models for the vehicle's environmental understanding: YOLO-based object detection pipelines for vehicles and pedestrians, and lane/road detection for drivable area estimation.\n\nModels were trained in PyTorch on custom-labeled datasets and integrated into the full autonomous stack via ROS2, feeding structured detections downstream to planning and control modules. At Year 3 (June 2024), Penn State AVT placed 3rd overall, 2nd in the Intersection Challenge, and 3rd in the Construction Challenge out of 10 competing universities.",
+    techStack: ["Python", "YOLO", "PyTorch", "ROS2", "OpenCV", "TensorFlow", "Computer Vision", "Autonomous Vehicles"],
+    category: ["ml", "systems"],
+    timeline: "Senior Capstone (2023–2024)",
+    date: "2024-06",
+    githubUrl: null,
+    demoUrl: "https://www.avt.psu.edu"
   },
   {
-    id: "project-music-rnn",
-    image: "assets/images/projects/music-rnn.jpg",
-    title: "Classical Music Generation with Neural Networks",
-    shortDescription: "Deep learning system for AI-powered piano composition using PyTorch and MAESTRO dataset",
-    fullDescription: "Built music generation system using RNNs learning from 200+ hours of piano performances. Processes 7 million notes from MAESTRO dataset with custom MIDI processing pipeline. LSTM architecture with multi-head outputs for pitch, timing, and duration prediction. Features temperature-based sampling, tempo scaling, and comprehensive visualization tools. Demonstrates practical sequence modeling in creative domains.",
-    techStack: ["PyTorch", "Python", "LSTM", "PrettyMIDI", "NumPy", "Deep Learning"],
-    category: ["ml"],
-    timeline: "Academic semester",
-    githubUrl: "https://github.com/EfeKaralar/EE456-final-project",
-    demoUrl: "https://github.com/EfeKaralar/EE456-final-project"
-  },
-  {
-    id: "project-cicd",
-    image: "assets/images/projects/cicd-portfolio.jpg",
-    title: "Automated CI/CD Portfolio Deployment",
-    shortDescription: "Enterprise-grade DevOps pipeline with Docker, GitHub Actions, and zero-downtime deployments",
-    fullDescription: "Architected complete DevOps solution featuring containerized Next.js with multi-stage Docker builds, automated CI/CD via GitHub Actions, Nginx reverse proxy with SSL/TLS. Security hardened with UFW firewall, Fail2Ban, non-root containers. Achieved 2-minute deployment cycles with 99.9% uptime.",
-    techStack: ["Docker", "GitHub Actions", "Nginx", "Let's Encrypt", "Ubuntu", "Next.js"],
+    id: "project-cicd-portfolio",
+    image: "https://projects.alpkaralar.com/assets/images/projects/cicd-portfolio.jpg",
+    title: "Automated CI/CD Deployment",
+    subtitle: "Enterprise-Grade DevOps Pipeline",
+    shortDescription: "Complete DevOps pipeline with containerized Next.js, GitHub Actions CI/CD, Nginx reverse proxy, and zero-downtime deployments achieving 99.9% uptime.",
+    fullDescription: "A complete enterprise-grade DevOps solution for automated portfolio deployment, demonstrating production infrastructure patterns end-to-end.\n\nThe stack features a containerized Next.js application with multi-stage Docker builds, automated CI/CD via GitHub Actions, Nginx reverse proxy with automatic SSL/TLS via Let's Encrypt, and security hardening with UFW firewall rules and Fail2Ban.\n\nAll containers run as non-root users. The pipeline achieves 2-minute end-to-end deployment cycles with 99.9% uptime, zero-downtime rolling deployments, and automatic rollback on health check failure.",
+    techStack: ["Docker", "GitHub Actions", "Nginx", "Let's Encrypt", "Ubuntu", "Next.js", "UFW", "Fail2Ban"],
     category: ["devops"],
     timeline: "1 week",
+    date: "2024-08",
     githubUrl: "https://github.com/efekaralar/portfolio",
     demoUrl: "https://alpkaralar.com"
   },
   {
-    id: "project-research-summarizer",
-    image: "assets/images/projects/research-summarizer.jpg",
-    title: "Research Summarizer - AI-Powered Paper Analysis",
-    shortDescription: "Full-stack platform for automated research paper discovery and comparative analysis",
-    fullDescription: "Built web application automating academic literature review with arXiv API integration, PDF processing, and multi-LLM summarization (DeepSeek, Claude, GPT). Structured extraction pipeline identifies key findings and methodologies. SQLAlchemy persistence with SQLite/PostgreSQL support. React frontend with Chakra UI. Deployed at researchtldr.xyz with Docker and Nginx. Reduces literature review time by 10x.",
-    techStack: ["Python", "FastAPI", "React", "Chakra UI", "SQLAlchemy", "PostgreSQL", "Docker", "DeepSeek API", "Claude API"],
-    category: ["fullstack", "ml"],
+    id: "project-music-rnn",
+    image: "https://projects.alpkaralar.com/assets/images/projects/music-rnn.jpg",
+    title: "Classical Music Generation",
+    subtitle: "Neural Networks for AI Piano Composition",
+    shortDescription: "Deep learning system for AI-powered piano composition using PyTorch LSTM networks trained on 200+ hours of MAESTRO dataset performances and 7 million notes.",
+    fullDescription: "A music generation system using recurrent neural networks trained on the MAESTRO dataset — 200+ hours of professional piano performances comprising 7 million notes.\n\nThe custom MIDI processing pipeline extracts pitch, timing, velocity, and duration features and encodes them as multi-dimensional sequences for modeling. The LSTM architecture uses multi-head outputs for simultaneous prediction of pitch, inter-onset interval, and note duration.\n\nInference supports temperature-based sampling to control creativity vs. coherence, tempo scaling, and real-time MIDI output. Built as a final project for EE 456 (Neural Networks) at Penn State.",
+    techStack: ["PyTorch", "Python", "LSTM", "PrettyMIDI", "NumPy", "Matplotlib", "Deep Learning"],
+    category: ["ml"],
+    timeline: "Academic semester",
+    date: "2024-05",
+    githubUrl: "https://github.com/EfeKaralar/EE456-final-project",
+    demoUrl: null
+  },
+  {
+    id: "project-lisp-interpreter",
+    image: "https://projects.alpkaralar.com/assets/images/projects/lisp-interpreter.jpg",
+    title: "Custom LISP Interpreter",
+    subtitle: "Language Implementation in C",
+    shortDescription: "Fully functional Lisp interpreter built from scratch in C featuring parser combinators, recursive descent parsing, lexical closures, and an interactive REPL.",
+    fullDescription: "A complete Lisp interpreter implemented from scratch in C, covering the full pipeline from raw source text to evaluated result.\n\nThe parser uses custom parser combinators — a functional approach where each combinator handles a specific grammar rule and composes cleanly with others. The recursive descent parser builds an S-expression AST which a tree-walking interpreter then evaluates with a persistent environment chain.\n\nLanguage features: first-class functions, lexical closures, proper tail call optimization, descriptive error messages with source positions, file I/O, string manipulation, and a full numeric tower. The REPL provides interactive evaluation with persistent environment state across expressions.",
+    techStack: ["C", "Parser Combinators", "REPL", "Language Design", "Recursive Descent", "AST"],
+    category: ["systems"],
     timeline: "Personal project",
-    githubUrl: "https://github.com/EfeKaralar/Research-Summarizer-App/",
-    demoUrl: "https://researchtldr.xyz/"
+    date: "2024-10",
+    githubUrl: "https://github.com/EfeKaralar/lisp-diy",
+    demoUrl: null
+  },
+  {
+    id: "project-mdadm",
+    image: "https://projects.alpkaralar.com/assets/images/projects/linux-raid.jpg",
+    title: "Linux RAID Storage System",
+    subtitle: "mdadm-Inspired Block Device Emulator in C",
+    shortDescription: "Low-level RAID device emulator in C integrating 16 simulated JBOD disks with LRU write-through caching achieving 87.9% hit rate and 30% latency reduction.",
+    fullDescription: "A full-featured linear RAID device emulator written in C, inspired by the Linux mdadm utility. The system integrates 16 simulated JBOD (Just a Bunch Of Disks) drives into a single virtual block device exposing standard mount, read, and write operations.\n\nThe write-through LRU cache uses a custom doubly-linked list + hash map implementation with configurable capacity. Under representative workloads the cache achieves an 87.9% hit rate and reduces average read latency by 30% compared to direct disk access.\n\nComprehensive testing verifies data integrity across concurrent read/write patterns, correct LRU eviction ordering, and proper fault isolation between disk segment boundaries.",
+    techStack: ["C", "Memory Management", "LRU Cache", "RAID", "Systems Programming", "Unix/Linux"],
+    category: ["systems"],
+    timeline: "3 weeks",
+    date: "2024-03",
+    githubUrl: "https://github.com/efekaralar/mdadm-linear-device",
+    demoUrl: null
+  },
+  {
+    id: "project-embedded-audio",
+    image: "https://projects.alpkaralar.com/assets/images/projects/embedded-audio.jpg",
+    title: "Embedded Linux Audio Processor",
+    subtitle: "Real-Time Guitar Amplifier on Orange Pi Zero",
+    shortDescription: "Real-time audio processing system on Orange Pi Zero using RT Kernel Armbian and JACK Audio, achieving production-ready guitar amplification with fully automated boot.",
+    fullDescription: "A real-time audio processing system built on the Orange Pi Zero single-board computer, architected to function as a standalone guitar amplifier and digital effects processor.\n\nThe system runs Armbian with a real-time (RT) kernel patch, providing deterministic scheduling for audio tasks and eliminating the latency spikes that cause audible glitches under standard kernel scheduling. JACK Audio Connection Kit serves as the low-latency audio server, and Guitarix implements amplifier modeling and the effects chain.\n\nAll components are configured and wired together via systemd service units that activate at boot in the correct order, eliminating any need for manual intervention. The result is a production-ready embedded audio device — plug in, power on, play.",
+    techStack: ["Linux", "RT Kernel", "Armbian", "JACK Audio", "Guitarix", "systemd", "Orange Pi", "Embedded Systems"],
+    category: ["systems"],
+    timeline: "Personal project",
+    date: "2023-08",
+    githubUrl: null,
+    demoUrl: null
   }
 ];
 
@@ -370,7 +438,7 @@ function renderProjects() {
   if (!container) return;
 
   const filteredProjects =
-    activeCategory === "all" ? projects.slice(0, 4) : projects.filter((p) => p.category.includes(activeCategory)).slice(0, 4);
+    activeCategory === "all" ? projects.slice(0, 3) : projects.filter((p) => p.category.includes(activeCategory)).slice(0, 3);
 
   container.innerHTML = filteredProjects
     .map(
