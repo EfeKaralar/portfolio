@@ -372,9 +372,14 @@ function openModal(projectId) {
   const modal = document.getElementById("project-modal");
   if (!modal) return;
 
+  const projectPageUrl = `https://projects.alpkaralar.com/project.html?id=${project.id}`;
+
   document.getElementById("modal-letter").textContent = project.title.charAt(0);
-  document.getElementById("modal-title").textContent = project.title;
+  document.getElementById("modal-title").innerHTML = `<a href="${projectPageUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color=''">${project.title}</a>`;
   document.getElementById("modal-description").textContent = project.fullDescription;
+
+  const readMoreBtn = document.getElementById("modal-read-more");
+  if (readMoreBtn) readMoreBtn.href = projectPageUrl;
   const modalCover = document.getElementById("modal-cover");
   const modalCoverOverlay = document.getElementById("modal-cover-overlay");
   const modalLetter = document.getElementById("modal-letter");
@@ -459,7 +464,7 @@ function renderProjects() {
                 <span class="text-slate-600 text-6xl font-bold opacity-20">${project.title.charAt(0)}</span>
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">↗</div>
+              <div class="absolute top-4 right-4 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(13,20,31,0.85);color:var(--accent);border:1px solid rgba(100,240,173,0.35)">↗</div>
             </div>
             <div class="p-6">
               <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">${project.title}</h3>
