@@ -116,7 +116,7 @@ const projects = [
     techStack: ["Python", "FastAPI", "Qdrant", "OpenAI Embeddings", "BM25", "Claude API", "RAG", "Vector Search"],
     category: ["ml", "fullstack"],
     timeline: "Personal project",
-    date: "2025-02",
+    date: "2026-02",
     githubUrl: "https://github.com/EfeKaralar/SevanBOT",
     demoUrl: "https://sevanbot.alpkaralar.com"
   },
@@ -130,7 +130,7 @@ const projects = [
     techStack: ["Python", "Flask", "React", "TypeScript", "Google Gemini API", "Auth0", "SQLite FTS5", "Tailwind CSS"],
     category: ["fullstack", "ml"],
     timeline: "Hackathon",
-    date: "2024-12",
+    date: "2025-12",
     githubUrl: "https://github.com/EArakoni/OSH",
     demoUrl: null
   },
@@ -144,7 +144,7 @@ const projects = [
     techStack: ["Python", "FastAPI", "React", "Chakra UI", "SQLAlchemy", "PostgreSQL", "Docker", "Nginx", "Claude API", "DeepSeek API"],
     category: ["fullstack", "ml"],
     timeline: "Personal project",
-    date: "2024-11",
+    date: "2025-11",
     githubUrl: "https://github.com/EfeKaralar/Research-Summarizer-App",
     demoUrl: "https://researchtldr.xyz"
   },
@@ -158,7 +158,7 @@ const projects = [
     techStack: ["Rust", "Tokio", "HTTP/1.1", "TLS/SSL", "RustLS", "Docker", "Async Programming"],
     category: ["systems", "devops"],
     timeline: "3 weeks",
-    date: "2024-09",
+    date: "2025-09",
     githubUrl: "https://github.com/EfeKaralar/rust-proxy",
     demoUrl: null
   },
@@ -186,7 +186,7 @@ const projects = [
     techStack: ["Docker", "GitHub Actions", "Nginx", "Let's Encrypt", "Ubuntu", "Next.js", "UFW", "Fail2Ban"],
     category: ["systems", "devops"],
     timeline: "1 week",
-    date: "2024-08",
+    date: "2025-08",
     githubUrl: "https://github.com/efekaralar/portfolio",
     demoUrl: "https://alpkaralar.com"
   },
@@ -200,7 +200,7 @@ const projects = [
     techStack: ["PyTorch", "Python", "LSTM", "PrettyMIDI", "NumPy", "Matplotlib", "Deep Learning"],
     category: ["ml"],
     timeline: "Academic semester",
-    date: "2024-05",
+    date: "2025-05",
     githubUrl: "https://github.com/EfeKaralar/EE456-final-project",
     demoUrl: null
   },
@@ -214,7 +214,7 @@ const projects = [
     techStack: ["C", "Parser Combinators", "REPL", "Language Design", "Recursive Descent", "AST"],
     category: ["systems"],
     timeline: "Personal project",
-    date: "2024-10",
+    date: "2025-10",
     githubUrl: "https://github.com/EfeKaralar/lisp-diy",
     demoUrl: null
   },
@@ -228,7 +228,7 @@ const projects = [
     techStack: ["C", "Memory Management", "LRU Cache", "RAID", "Systems Programming", "Unix/Linux"],
     category: ["systems"],
     timeline: "3 weeks",
-    date: "2024-03",
+    date: "2025-03",
     githubUrl: "https://github.com/efekaralar/mdadm-linear-device",
     demoUrl: null
   },
@@ -242,7 +242,7 @@ const projects = [
     techStack: ["Linux", "RT Kernel", "Armbian", "JACK Audio", "Guitarix", "systemd", "Orange Pi", "Embedded Systems"],
     category: ["systems"],
     timeline: "Personal project",
-    date: "2023-08",
+    date: "2024-08",
     githubUrl: null,
     demoUrl: null
   }
