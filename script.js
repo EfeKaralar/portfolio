@@ -184,7 +184,7 @@ const projects = [
     shortDescription: "Complete DevOps pipeline with containerized Next.js, GitHub Actions CI/CD, Nginx reverse proxy, and zero-downtime deployments achieving 99.9% uptime.",
     fullDescription: "A complete enterprise-grade DevOps solution for automated portfolio deployment, demonstrating production infrastructure patterns end-to-end.\n\nThe stack features a containerized Next.js application with multi-stage Docker builds, automated CI/CD via GitHub Actions, Nginx reverse proxy with automatic SSL/TLS via Let's Encrypt, and security hardening with UFW firewall rules and Fail2Ban.\n\nAll containers run as non-root users. The pipeline achieves 2-minute end-to-end deployment cycles with 99.9% uptime, zero-downtime rolling deployments, and automatic rollback on health check failure.",
     techStack: ["Docker", "GitHub Actions", "Nginx", "Let's Encrypt", "Ubuntu", "Next.js", "UFW", "Fail2Ban"],
-    category: ["devops"],
+    category: ["systems", "devops"],
     timeline: "1 week",
     date: "2024-08",
     githubUrl: "https://github.com/efekaralar/portfolio",
@@ -250,10 +250,9 @@ const projects = [
 
 const projectCategories = [
   { id: "all", label: "All Projects" },
-  { id: "devops", label: "DevOps" },
-  { id: "systems", label: "Systems Engineering" },
   { id: "ml", label: "Machine Learning" },
-  { id: "fullstack", label: "Full-Stack" }
+  { id: "fullstack", label: "Full-Stack" },
+  { id: "systems", label: "Systems" }
 ];
 
 let activeCategory = "all";
@@ -438,7 +437,12 @@ function renderProjects() {
   if (!container) return;
 
   const filteredProjects =
-    activeCategory === "all" ? projects.slice(0, 3) : projects.filter((p) => p.category.includes(activeCategory)).slice(0, 3);
+    activeCategory === "all"
+      ? projects.slice(0, 3)
+      : projects
+          .filter((p) => p.category.includes(activeCategory))
+          .sort((a, b) => (a.category[0] === activeCategory ? 0 : 1) - (b.category[0] === activeCategory ? 0 : 1))
+          .slice(0, 3);
 
   container.innerHTML = filteredProjects
     .map(
