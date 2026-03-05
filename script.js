@@ -131,7 +131,7 @@ const projects = [
     category: ["fullstack", "ml"],
     timeline: "Hackathon",
     date: "2025-12",
-    githubUrl: "https://github.com/EArakoni/OSH",
+    githubUrl: "https://github.com/EfeKaralar/lkml-dashboard",
     demoUrl: null
   },
   {
