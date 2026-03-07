@@ -107,6 +107,21 @@ const experiences = [
 
 const projects = [
   {
+    id:               "project-tafsirbot",
+    image:            "https://projects.alpkaralar.com/assets/images/projects/tafsirbot.jpg",
+    title:            "TafsirBot",
+    subtitle:         "RAG Pipeline for Islamic Scholarly Commentary",
+    shortDescription: "Scholarly Islamic Q&A system built on a hybrid RAG pipeline over classical Tafsir commentary, with ayah-scoped chunking, BM42+dense Qdrant retrieval via RRF fusion, and multi-channel delivery across Telegram, web, WhatsApp, and X.",
+    fullDescription:  "TafsirBot is an AI-powered Islamic scholarly assistant that retrieves and synthesizes commentary from classical Tafsir works — Ibn Kathir, Maududi, and others — for any Quranic verse or Islamic question. The system is built around source fidelity: every response cites at least one classical scholar, and jurisprudential questions surface multi-madhab scholarly perspectives with an explicit disclaimer rather than issuing a personal ruling. Only queries entirely unrelated to Islam are refused.\n\nThe ingestion pipeline is a five-stage offline Python system (clean → chunk → embed → upsert → audit) that processes raw Tafsir text into ayah-scoped chunks — never fixed token windows — so every retrieved passage maps directly to a citable scripture reference. Each chunk carries structured metadata: surah number, ayah range, scholar identifier, language, and corpus type. Retrieval is hybrid: dense vectors via text-embedding-3-large (3072 dims) and sparse BM42 vectors are stored as named fields in Qdrant and fused server-side via Reciprocal Rank Fusion (RRF), combining semantic and exact-term matching for transliterated Arabic, verse references, and scholar names.\n\nThe query pipeline is a 7-step n8n sub-workflow shared across all delivery channels: input normalization → intent classification → ayah reference resolution → hybrid retrieval with metadata filtering → prompt assembly → LLM generation (Claude Sonnet / GPT-4o, temperature 0.3) → post-processing with citation extraction. A confidence-based routing layer holds low-quality responses for human review before publishing on X. Multi-turn conversation history is persisted in Postgres, keyed on channel and user ID.",
+    techStack:        ["Python", "Qdrant", "n8n", "OpenAI Embeddings", "BM42/fastembed", "Claude API", "RAG", "PostgreSQL", "Docker"],
+    category:         ["ml", "fullstack"],
+    timeline:         "Personal project",
+    date:             "2026-03",
+    githubUrl:        "https://github.com/EfeKaralar/TafsirBot",
+    demoUrl:          null,
+  },
+
+  {
     id: "project-sevanbot",
     image: "https://projects.alpkaralar.com/assets/images/projects/sevanbot.jpg",
     title: "SevanBOT",
@@ -443,7 +458,7 @@ function renderProjects() {
 
   const filteredProjects =
     activeCategory === "all"
-      ? projects.slice(0, 3)
+      ? [projects.find(p => p.id === "project-tafsirbot"), projects.find(p => p.id === "project-lkml-dashboard"), projects.find(p => p.id === "project-sevanbot")].filter(Boolean)
       : projects
           .filter((p) => p.category.includes(activeCategory))
           .sort((a, b) => (a.category[0] === activeCategory ? 0 : 1) - (b.category[0] === activeCategory ? 0 : 1))
